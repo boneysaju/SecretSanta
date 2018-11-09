@@ -15,7 +15,20 @@ object Util {
   def clearFile(): Unit = {
     val fw = new FileWriter(new File("participants.txt"))
     fw.write("")
+    println("File cleared!")
     fw.close()
+  }
+
+  def addTestData(): Unit = {
+    clearFile()
+    record(List(
+      Participant("Gary", "gary@email.com", "25", "BN12 4NS"),
+      Participant("Tony", "tony@email.com", "25", "BN12 4NS"),
+      Participant("John", "john@email.com", "25", "BN12 4NS"),
+      Participant("Paul", "paul@email.com", "25", "BN12 4NS"),
+      Participant("Fred", "fred@email.com", "25", "BN12 4NS"),
+      Participant("Anna", "anna@email.com", "25", "BN12 4NS")))
+    println("Test data created!")
   }
 
 }
