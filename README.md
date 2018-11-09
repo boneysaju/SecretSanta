@@ -7,7 +7,7 @@
 - [ ] The app must assign a gifter to a giftee
 - [ ] The app must not assign a person to themselves
 - [ ] The app must send an email to the gifter containing the name and mailing address of the giftee
-- [ ] The minimum number of people on the “Nice List” is 5
+- [x] The minimum number of people on the “Nice List” is 5
 - [ ] Once a gifter has been assigned a giftee, they must be removed from the gifter list so that they cannot be assigned another giftee
 - [ ] The giftee must not be made aware of who their gifter is
 - [ ] The app should not reveal any gifter/giftee assignments, including to the app developer/executer

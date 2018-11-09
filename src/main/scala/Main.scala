@@ -1,12 +1,12 @@
-import scala.io.StdIn
 
 object Main extends App {
 
-  println("How would you like to use the app?")
-  println("Insert 1  for Uploading a CSV file and insert 2 for Entering participants manually")
-//  val userChoice = StdIn.readLine()
+  println("Welcome to the Secret Santa app!")
+  println("Choose option by entering the number:" +
+    "\n1) Load participants from \"participants.txt\" in the same folder" +
+    "\n2) Enter the participants manually")
 
-  UserInteraction.start(StdIn.readLine())
+  UserInteraction.start()
 
 }
 
