@@ -16,3 +16,10 @@
 - [ ] App can contain multiple “Nice Lists” so that the same process can be repeated for multiple groups of participants
 - [ ] Can assign a person to multiple “Nice Lists” so that they can participate in multiple gift giving experiences
 - [ ] Participants can submit a wish list which will be emailed to the gifter at time of assignment, providing gift suggestions
+
+## Instructions:
+- If you want to use a predefined list of participants, you need to provide a file called "participants.txt" in the folder,
+which should include **all** of the participants listed in the following format: 
+> name,email,house number/name,postcode 
+
+> Example: John,john@email.com,25,BN12 1PA
