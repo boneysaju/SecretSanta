@@ -1,5 +1,0 @@
-John, john@email.com, 25, BN10 10P,
-Tim, tim@email.com, 25, BN10 10P,
-Johnny, johnny@email.com, 25, BN10 10P,
-Tony, tony@email.com, 25, BN10 10P,
-Connie, connie@email.com, 25, BN10 10P
