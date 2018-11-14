@@ -30,21 +30,30 @@ object AppCore {
         *
       . * Why does the fold return Equals?! And why does nobody else on StackOverflow have the same issue?! **/
 //    val t =
-      ppl.fold(Map[Participant, Participant]()){
-
-        case (a: Map[Participant, Participant], p: Participant) ⇒
-
-        println(s"Original list: $ppl")
-        // Filters out the giftees that have already been chosen
-        val nppl: List[Participant] = ppl.filter(!a.values.toList.contains(_))
-
-        println(s"List after filtering: $nppl")
-        a.foreach(println(_))
-        a ++ Map(p → Random.shuffle(removeParticipantFromList(p, nppl)).head)
-
+//      ppl.fold(Map[Participant, Participant]()){
+//
+//        case (a: Map[Participant, Participant], p: Participant) ⇒
+//
+//        println(s"Original list: $ppl")
+//         Filters out the giftees that have already been chosen
+//        val nppl: List[Participant] = ppl.filter(!a.values.toList.contains(_))
+//
+//        println(s"List after filtering: $nppl")
+//        a.foreach(println(_))
+//        a ++ Map(p → Random.shuffle(removeParticipantFromList(p, nppl)).head)
+//
 //        case _ ⇒ throw new Exception("Shit went south")
-    }
-//    Map(Participant("","","","") → Participant("","","",""))
+//    }
+
+    def recurse(gifters: List[Participant], map: Map[Participant, Participant], giftees: List[Participant]): Map[Participant, Participant] =
+      if(gifters.nonEmpty) {
+        val r = Random.shuffle(removeParticipantFromList(gifters.head, ppl) diff giftees)
+        recurse(gifters.tail, map + (gifters.head → r.head), r.head :: giftees)
+      }
+      else map
+
+    recurse(ppl, Map(), List()).foreach(x ⇒ println(x._1.name + " will be sending a gift to " + x._2.name))
+    recurse(ppl, Map(), List())
   }
 
   def sendEmails(): Unit = println("\nEmail functionality is not implemented yet. Sorry mate!\nOff you go now!")
