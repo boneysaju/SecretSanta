@@ -17,9 +17,7 @@ object Main extends App {
 
       case x ⇒ x match {
         case "add test data"          ⇒ TextFile.addTestData()
-
         case "clear file"             ⇒ TextFile.clearFile()
-
         case _                        ⇒ println("The instructions aren't that hard. Enter either 1 or 2. Again!\n")
         }
         start()
