@@ -9,14 +9,14 @@ object AppCore {
     println("\nProceeding to pairing participants...")
 
     @tailrec
-    def recurse(gifters: List[A], map: Map[A, A], giftees: List[A]): Map[A, A] = gifters match {
+    def pairParticipants(gifters: List[A], map: Map[A, A], giftees: List[A]): Map[A, A] = gifters match {
       case x if x.nonEmpty ⇒
         // Getting the complete list, removing the person who we are allocating a giftee to, removing the giftees already used, then shuffling the list
         val r = Random.shuffle(removeParticipantFromList(gifters.head, ppl) diff giftees)
-        recurse(gifters.tail, map + (gifters.head → r.head), r.head :: giftees)
+        pairParticipants(gifters.tail, map + (gifters.head → r.head), r.head :: giftees)
       case _        ⇒ map
     }
-    recurse(ppl, Map(), List())
+    pairParticipants(ppl, Map(), List())
   }
 
   def sendEmails(): Unit = println("\nEmail functionality is not implemented yet. Sorry mate!\nOff you go now!")

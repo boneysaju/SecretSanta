@@ -1,13 +1,26 @@
 import java.io.{File, FileWriter}
+import java.nio.file.{Files, Paths}
+
+import scala.io.StdIn
 
 object TextFile {
 
-  /** Loading data from participants.txt **/
+  /** Loading data from desired text file **/
   def loadParticipants(): List[Participant] = {
-    println("\nGetting information from participants.txt...")
-    val fileSource = io.Source.fromFile("participants.txt")
-    val test = fileSource.getLines().toList
-    test.flatMap{ x ⇒
+    val fileName = StdIn.readLine("How have you named the file(including the extension, e.g. participants.txt)? ")
+
+    println("Trying to locate the file...")
+    val path = Paths.get(System.getProperty("user.dir") + "/" + fileName)
+    println(s"with path $path")
+    Files.exists(path) match {
+      case true  ⇒ println("File located!")
+      case false ⇒
+        println("File does not exist. Try again!")
+        loadParticipants()
+    }
+
+    println(s"\nGetting information from $fileName")
+    io.Source.fromFile(fileName).getLines().toList.flatMap{ x ⇒
       val l = x.split(",").map(_.trim)
       if(l.length == 4) {
         println("Getting participant with name " + l(0) + " and email " + l(1) + "...")

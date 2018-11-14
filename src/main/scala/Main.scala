@@ -10,7 +10,7 @@ object Main extends App {
   /** The main function that runs the programme **/
   def start(): Unit = {
     println("Choose an option by entering the number:" +
-      "\n1) Load participants from \"participants.txt\" in the same folder" +
+      "\n1) Load participants from a .txt file in the same folder" +
       "\n2) Enter the participants manually")
     val userChoice = StdIn.readLine() match {
       case x if x == "1" | x == "2" ⇒ x
@@ -25,8 +25,6 @@ object Main extends App {
 
     val ppl = userChoice match {
       case "1" =>
-        confirm("\nHave you provided a file named participants.txt in the correct format:" +
-          "\nname,email,house number/name,postcode (each on a new line)?")
         val ppl: List[Participant] = TextFile.loadParticipants()
         AppCore.validateList(ppl)
 
