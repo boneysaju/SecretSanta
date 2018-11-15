@@ -33,11 +33,10 @@ object Main extends App {
     proceedWithCsv(StdIn.readLine("Do you wish to proceed with the above information? "))
   }
 
-  def proceedWithCsv[T](proceedOption:T):Unit = {
-  proceedOption.asInstanceOf[String].toLowerCase match {
-    case "yes" | "y" ⇒ //randomise list
-    case "no" | "n" ⇒ println("\nPlease revise the participants.txt file and try again\n")
-      //Change input to lowercase?
+  def proceedWithCsv(proceedOption:String):Unit = {
+  proceedOption.toLowerCase.headOption match {
+    case Some('y') ⇒ println("YES")//randomise list
+    case Some('n') ⇒ println("\nPlease revise the participants.txt file and try again\n")
     case _ ⇒ println("That is an invalid input. Please type 'YES' to continue or 'NO' to exit ")
       proceedWithCsv(StdIn.readLine("Do you wish to proceed with the above information? "))
   }}
