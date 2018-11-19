@@ -16,6 +16,7 @@ object AppCore {
         pairParticipants(gifters.tail, map + (gifters.head → r.head), r.head :: giftees)
       case _        ⇒ map
     }
+    pairParticipants(ppl, Map(), List()).foreach(println(_))
     pairParticipants(ppl, Map(), List())
   }
 
