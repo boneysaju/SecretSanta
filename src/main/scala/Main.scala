@@ -33,11 +33,12 @@ object Main extends App {
     proceedWithCsv(StdIn.readLine("Do you wish to proceed with the above information? "))
   }
 
-  def proceedWithCsv[T](proceedOption:T):Unit = {
-  proceedOption.asInstanceOf[String].toLowerCase.take(0) match {
-    case "y" ⇒ //randomise list
-    case "n" ⇒ println("\nPlease revise the participants.txt file and try again\n")
-      //Change input to lowercase?
+
+  def proceedWithCsv(proceedOption:String):Unit = {
+  proceedOption.toLowerCase.headOption match {
+    case Some('y') ⇒ println("YES")//randomise list
+    case Some('n') ⇒ println("\nPlease revise the participants.txt file and try again\n")
+
     case _ ⇒ println("That is an invalid input. Please type 'YES' to continue or 'NO' to exit ")
       proceedWithCsv(StdIn.readLine("Do you wish to proceed with the above information? "))
   }}
@@ -54,9 +55,7 @@ object Main extends App {
     }
   }
 
-<<<<<<< HEAD
 
-=======
   def userEntersParticipantsManually(): Unit = {
     var n: Int = 0
     while (n < numberOfPeople) {
@@ -84,7 +83,7 @@ object Main extends App {
     } else text
   }
 //integrating with email API
->>>>>>> 9b174987a38f7f25c274145c3dd0f2ad503878b0
+
 
 }
 
