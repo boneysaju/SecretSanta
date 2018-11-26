@@ -1,5 +1,4 @@
-import org.apache.commons.mail.{DefaultAuthenticator, SimpleEmail}
-
+import org.apache.commons.mail.{DefaultAuthenticator, SimpleEmail, EmailAttachment}
 object Mail {
   def sendMail(aList: List[(String, String, String)]): Unit = {
     val gifterName: String = aList.head._1
@@ -14,7 +13,7 @@ object Mail {
       email.setSSLOnConnect(true)
       email.setFrom("ten10secretsanta@gmail.com")
       email.setSubject("You're a secret santa!")
-      email.setMsg(s"Hello $gifterName,\nYou are $gifteeName's secret santa! This is their address: \n$gifteeAddress \n\nPlease have it arrive by December 20th, thanks! :)")
+      email.setMsg(s"Greetings $gifterName,\n\nYou are $gifteeName's secret santa! This is their address: \n$gifteeAddress \n\nPlease have it arrive by ${Main.exchangeDate}, thanks! :)")
       email.addTo(s"$gifterEmail")
       email.send()
     }
