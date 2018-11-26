@@ -1,3 +1,5 @@
+import ManualInput.validateText
+
 import scala.io.StdIn
 
 object Main extends App {
@@ -5,9 +7,9 @@ object Main extends App {
   println("How would you like to use the app?")
   println("Insert 1 to use the participants.txt file or 2 to enter participants manually")
   val userChoice = userInputType(StdIn.readLine("Enter 1 or 2 here: "))
+  var exchangeDate = ""
 
-
-  def restartApp():Unit = userInputType(StdIn.readLine("Enter 1 or 2 here: "))
+  def restartApp(): Unit = userInputType(StdIn.readLine("Enter 1 or 2 here: "))
 
   def userInputType[T](userChoice: T): Unit = {
     userChoice match {
@@ -24,5 +26,15 @@ object Main extends App {
 
     Pairing.pairPeopleUp(ManualInput.numberOfPeople, ManualInput.santaList)
   }
+
+  def setDate(): Unit = {
+    exchangeDate = StdIn.readLine("When would you like to hold the gift exchange? Please specify a date: ")
+    if (exchangeDate.isEmpty) {
+      println("Please enter a date for the gift exchange to take place")
+      setDate()
+    }
+    pairAndEmail()
+  }
+
 }
 

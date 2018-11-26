@@ -36,7 +36,7 @@ object ManualInput {
     }
     println(s"All $n participants have been added to the list")
 
-    Main.pairAndEmail()
+    Main.setDate()
   }
 
   def enterParticipantDetails(n: Int): Unit = {
