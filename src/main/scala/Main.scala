@@ -1,5 +1,3 @@
-import ManualInput.validateText
-
 import scala.io.StdIn
 
 object Main extends App {

@@ -1,4 +1,4 @@
-import org.apache.commons.mail.{DefaultAuthenticator, SimpleEmail, EmailAttachment}
+import org.apache.commons.mail.{DefaultAuthenticator, SimpleEmail}
 object Mail {
   def sendMail(aList: List[(String, String, String)]): Unit = {
     val gifterName: String = aList.head._1

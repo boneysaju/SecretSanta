@@ -1,5 +1,3 @@
-import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
 import scala.io.StdIn
 
 object ManualInput {
