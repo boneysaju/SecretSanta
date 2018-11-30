@@ -4,14 +4,10 @@ object Pairing {
     val shuffleList = scala.util.Random.shuffle(santaList)
     var x: Int = 0
     while (x < n) {
-    try{ val alist = List(shuffleList(x), shuffleList({x + 1}))
-      println(alist) //debugging
-      Mail.sendMail(alist)}
+    try Mail.sendMail(List(shuffleList(x), shuffleList({x + 1})))
       catch {
         case _: Throwable => {
-          val blist = List(shuffleList(x), shuffleList({(x + 1) - n}))
-          println(blist)
-          Mail.sendMail(blist)
+          Mail.sendMail(List(shuffleList(x), shuffleList({(x + 1) - n})))
         }
       }
       x += 1

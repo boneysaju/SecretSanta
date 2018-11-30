@@ -18,11 +18,12 @@ object Main extends App {
     }
   }
 
-  def pairAndEmail(): Unit = {
+  def pairAndEmail(numberOfPeople: Int, santaList: List[(String, String, String)]): Unit = {
+    setDate()
     println("Ready to proceed with pairing and emailing, press enter to continue")
     println(StdIn.readLine(""))
 
-    Pairing.pairPeopleUp(ManualInput.numberOfPeople, ManualInput.santaList)
+    Pairing.pairPeopleUp(numberOfPeople, santaList)
   }
 
   def setDate(): Unit = {
@@ -31,8 +32,6 @@ object Main extends App {
       println("Please enter a date for the gift exchange to take place")
       setDate()
     }
-    pairAndEmail()
   }
-
 }
 

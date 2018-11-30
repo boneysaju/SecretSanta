@@ -22,5 +22,6 @@ object Mail {
         println(s"Unable to send email to $gifterName. Reason: ${System.err}")
       }
     }
+    println("Participants paired, emails sent.. closing application.... Good bye!")
   }
 }

@@ -27,14 +27,12 @@ object ManualInput {
     var n: Int = 0
     while (n < numberOfPeople) {
       println(s"Add participant ${n + 1}")
-      enterParticipantDetails({
-        n + 1
-      })
+      enterParticipantDetails({ n + 1 })
       n += 1
     }
     println(s"All $n participants have been added to the list")
 
-    Main.setDate()
+    Main.pairAndEmail(numberOfPeople,santaList)
   }
 
   def enterParticipantDetails(n: Int): Unit = {
@@ -50,9 +48,6 @@ object ManualInput {
         case "y" => {
           correct = true
           santaList = santaList :+ ((name, email, address))
-          santaList.foreach({
-            println //debugging line
-          })
         }
         case "n" => println(s"Please re-enter details for participant $n\n")
         case _ => confirmDetails(StdIn.readLine("Are the above details correct? (Y/N): "))
