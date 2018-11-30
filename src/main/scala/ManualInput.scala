@@ -6,7 +6,7 @@ object ManualInput {
   var santaList: List[(String, String, String)] = List()
 
   def userChoosesManualInput(): Unit = {
-    println("How many participants are in your party?")
+    println("Proceeding with manual input\nHow many participants are in your party?")
     try numberOfPeople = Console.readInt()
     catch {
       case _: Throwable ⇒ {
@@ -27,12 +27,14 @@ object ManualInput {
     var n: Int = 0
     while (n < numberOfPeople) {
       println(s"Add participant ${n + 1}")
-      enterParticipantDetails({ n + 1 })
+      enterParticipantDetails({
+        n + 1
+      })
       n += 1
     }
     println(s"All $n participants have been added to the list")
 
-    Main.pairAndEmail(numberOfPeople,santaList)
+    Main.pairAndEmail(numberOfPeople, santaList)
   }
 
   def enterParticipantDetails(n: Int): Unit = {
